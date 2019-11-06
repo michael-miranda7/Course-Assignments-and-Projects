@@ -1,0 +1,65 @@
+testqueries.txt
+1. select pno,pname,price
+	from parts natural join odetails
+	where price < 20.00; completed
+
+2. select *
+	from customers
+	where cname like '_ee%'; completed
+
+3. select distinct cname,ename
+	from customers natural join orders,employees
+	where orders.eno = employees.eno; completed
+
+4. select ono, pno, pname, qty, price, round((qty*price),2) as total
+	from parts natural join odetails; completed
+
+5. select s.cno,t.cno
+	from customers as s,customers as t
+	where s.zip = t.zip
+	and s.cno <> t.cno; completed
+
+6. select pno, count(pno) as number
+	from odetails
+	group by pno
+	having number > 1; completed
+
+7. select distinct cno,cname
+	from customers natural join orders natural join odetails natural join parts
+	where pname = 'Dirty Harry' or pname = 'Dr. Zhivago'; completed
+
+8. select distinct cname
+	from customers natural join orders
+	where eno = 1000; completed
+
+9. select sum(qty) as total
+	from odetails
+	where pno = 10601; completed
+
+10. select ono, sum(round((qty*price),2)) as total
+	from orders natural join parts natural join odetails
+	group by ono; completed
+
+11. select city, count(*) as number
+	from (select city
+	from customers, zipcodes
+	where customers.zip = zipcodes.zip) as c
+	group by city; completed
+
+12. select pno,pname,price
+	from parts
+	where price > all(select avg(price) from parts); completed
+
+13. select pno,pname,sum(round((price*qty),2)) as sales
+	from parts natural join odetails
+	group by pno; completed
+
+14. select pno,pname,sum(round((price*qty),2)) as sales
+	from parts natural join odetails
+	group by pno
+	having sales > 100.00; completed
+
+15. select ono
+	from (select ono, DATEDIFF(shipped,received) as datediff
+	from orders
+	having datediff <=2) as diff; completed
