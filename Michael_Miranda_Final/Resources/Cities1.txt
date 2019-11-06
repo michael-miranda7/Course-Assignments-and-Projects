@@ -1,0 +1,7 @@
+Wilmington NC ILM 700 380
+Austin TX ATN 400 500
+Chicago IL ORD 400 200
+Sacramento CA STO 50 300
+Seattle WA SLE 75 100
+Minneapolis MN MPL 250 200
+Boston MA BOS 750 200

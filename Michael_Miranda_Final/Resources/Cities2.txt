@@ -1,0 +1,4 @@
+Wilmington NC ILM 600 380
+Austin TX ATN 400 500
+Chicago IL ORD 400 250
+Boston MA BOS 750 200
